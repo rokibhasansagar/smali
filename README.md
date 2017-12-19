@@ -1,10 +1,16 @@
 华为mate10使用了最新的androido，并进行了预编译，然后baksmali现在还不支持androido，导致反编译困难，于是自己动手diy
  
+ 
 1、        adb pull /system/framework，把整个框架的代码pull 出来，特别是arm64目录下的vdex文件
+
 2、        从vdex文件扣出dex文件，并构成jar文件，这一步可以使用16进制编辑器，找到dex\n035开头的magic，并把往后的内容导出成一个classes.dex文件，然后并压缩到jary谁的中，注意，boot-framework.vdex里，包括两个dex文件
+
 3、        adb pull /system/app/iaware/oat/arm64/base.vdex，pull出预编译后的vdex代码，并扣出dex文件
+
 4、        下载baksmali源码，编译并调试执行baksmali d –x base.vdex –d <2中生成的framework的.jar目录>
+
 5、        哪里错了改哪里，还要把华为的bootclasspath替换掉原本的bootclasspath，或者直接使用https://github.com/lcweik/smali
+
 6、        再执行一下baksmali d –x base.vdex –d<2中生成的framework的.jar目录>，全部都反编译出来了，保存在out目录，再 smali a out –o base.dex，就行了。
 
 
