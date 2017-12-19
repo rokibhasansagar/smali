@@ -145,6 +145,6 @@ public class Opcodes {
     }
 
     public boolean isArt() {
-        return artVersion != NO_VERSION;
+        return true;//artVersion != NO_VERSION;
     }
 }

@@ -236,11 +236,12 @@ public class OdexedFieldInstructionMapper {
         FieldOpcode fieldOpcode = opcodeMap[isGet(odexedOpcode)?GET:PUT]
                 [isStatic(odexedOpcode)?STATIC:INSTANCE]
                 [getTypeIndex(fieldType.charAt(0))];
-
+/*
         if (!isCompatible(odexedOpcode, fieldOpcode.type)) {
             throw new AnalysisException(String.format("Incorrect field type \"%s\" for %s", fieldType,
                     odexedOpcode.name));
         }
+        */
 
         return fieldOpcode.normalOpcode;
     }

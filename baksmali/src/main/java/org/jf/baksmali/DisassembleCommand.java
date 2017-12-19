@@ -178,7 +178,7 @@ public class DisassembleCommand extends DexInputCommand {
             analysisArguments.classPathDirectories = Lists.newArrayList(inputFile.getAbsoluteFile().getParent());
         }
 
-        if (!Baksmali.disassembleDexFile(dexFile, outputDirectoryFile, jobs, getOptions(), classes)) {
+        if (!Baksmali.disassembleDexFile(dexFile, outputDirectoryFile, 1/*jobs*/, getOptions(), classes)) {
             System.exit(-1);
         }
     }

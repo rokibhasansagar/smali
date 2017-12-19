@@ -337,6 +337,10 @@ public class ClassPathResolver {
             return ((DexBackedOdexFile)dexFile).getDependencies();
         }
 
+        // lcweik patch {@
+        apiLevel = 27;
+        // @}
+
         if (apiLevel <= 8) {
             return Lists.newArrayList(
                     "/system/framework/core.jar",
@@ -445,7 +449,7 @@ public class ClassPathResolver {
                     "/system/framework/ims-common.jar",
                     "/system/framework/apache-xml.jar",
                     "/system/framework/org.apache.http.legacy.boot.jar");
-        } else /*if (apiLevel <= 24)*/ {
+        } else if (apiLevel <= 24) {
             return Lists.newArrayList(
                     "/system/framework/core-oj.jar",
                     "/system/framework/core-libart.jar",
@@ -460,6 +464,32 @@ public class ClassPathResolver {
                     "/system/framework/ims-common.jar",
                     "/system/framework/apache-xml.jar",
                     "/system/framework/org.apache.http.legacy.boot.jar");
+        } else /* if (apiLevel <= 27) */ { //hw
+            return Lists.newArrayList(
+                    "/system/framework/core-oj.jar",
+                    "/system/framework/core-libart.jar",
+                    "/system/framework/conscrypt.jar",
+                    "/system/framework/okhttp.jar",
+                    "/system/framework/legacy-test.jar",
+                    "/system/framework/bouncycastle.jar",
+                    "/system/framework/ext.jar",
+                    "/system/framework/framework.jar",
+                    "/system/framework/telephony-common.jar",
+                    "/system/framework/voip-common.jar",
+                    "/system/framework/ims-common.jar",
+                    "/system/framework/apache-xml.jar",
+                    "/system/framework/org.apache.http.legacy.boot.jar",
+                    "/system/framework/android.hidl.base-V1.0-java.jar",
+                    "/system/framework/android.hidl.manager-V1.0-java.jar",
+                    "/system/framework/hwEmui.jar",
+                    "/system/framework/hwTelephony-common.jar",
+                    "/system/framework/hwframework.jar",
+                    "/system/framework/org.simalliance.openmobileapi.jar",
+                    "/system/framework/org.ifaa.android.manager.jar",
+                    "/system/framework/hwaps.jar",
+                    "/system/framework/hwcustEmui.jar",
+                    "/system/framework/hwcustframework.jar",
+                    "/system/framework/hwcustTelephony-common.jar" );
         }
     }
 }

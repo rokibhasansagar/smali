@@ -92,7 +92,7 @@ public class ClassPath {
         unknownClass = new UnknownClassProto(this);
         loadedClasses.put(unknownClass.getType(), unknownClass);
         this.checkPackagePrivateAccess = checkPackagePrivateAccess;
-        this.oatVersion = oatVersion;
+        this.oatVersion = 88;//oatVersion;
 
         loadPrimitiveType("Z");
         loadPrimitiveType("B");
@@ -124,7 +124,7 @@ public class ClassPath {
     }
 
     public boolean isArt() {
-        return oatVersion != NOT_ART;
+        return true;//oatVersion != NOT_ART;
     }
 
     @Nonnull
@@ -167,7 +167,7 @@ public class ClassPath {
     private final Supplier<OdexedFieldInstructionMapper> fieldInstructionMapperSupplier = Suppliers.memoize(
             new Supplier<OdexedFieldInstructionMapper>() {
                 @Override public OdexedFieldInstructionMapper get() {
-                    return new OdexedFieldInstructionMapper(isArt());
+                    return new OdexedFieldInstructionMapper(true/*isArt()*/);
                 }
             });
 

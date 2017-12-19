@@ -55,7 +55,7 @@ public abstract class DexInputCommand extends Command {
     @Parameter(names = {"-a", "--api"},
             description = "The numeric api level of the file being disassembled.")
     @ExtendedParameter(argumentNames = "api")
-    public int apiLevel = 15;
+    public int apiLevel = 27;
 
     @Parameter(description = "A dex/apk/oat/odex file. For apk or oat files that contain multiple dex " +
             "files, you can specify the specific entry to use as if the apk/oat file was a directory. " +
